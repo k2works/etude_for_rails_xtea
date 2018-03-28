@@ -49,3 +49,5 @@ rails g model employee_department --migration false
 
 ## 参照
 + [Rails - schema.rb（既存DBを使ったアプリ作成）](https://qiita.com/edo1z/items/a0bf22b294406f00ec7c)
++ [rails 既存DBを使ってrailsしてみた。](http://hmu29.hatenablog.com/entry/2014/02/14/001513)
++ [Composite Primary Keys for ActiveRecords](https://github.com/composite-primary-keys/composite_primary_keys)

@@ -13,9 +13,9 @@ DROP TABLE IF EXISTS `AT010`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AT010` (
-  `CDBUMON` char(5) NOT NULL,
-  `TXBUMON` char(30) NOT NULL,
-  `NRKANRISYA` char(5) NOT NULL,
+  `CDBUMON` varchar(5) NOT NULL,
+  `TXBUMON` varchar(30) NOT NULL,
+  `NRKANRISYA` varchar(5) NOT NULL,
   `TXTEKIYO` varchar(300) DEFAULT NULL,
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`CDBUMON`)
@@ -25,10 +25,10 @@ DROP TABLE IF EXISTS `AT011`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AT011` (
-  `CDBUMON` char(5) NOT NULL,
-  `DTHAKKOUNENGETSU` char(6) NOT NULL,
-  `CDJYOUIBUMON` char(5) NOT NULL,
-  `DTSIKKOUNENGETSU` char(6) NOT NULL,
+  `CDBUMON` varchar(5) NOT NULL,
+  `DTHAKKOUNENGETSU` varchar(6) NOT NULL,
+  `CDJYOUIBUMON` varchar(5) NOT NULL,
+  `DTSIKKOUNENGETSU` varchar(6) NOT NULL,
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`CDBUMON`,`DTHAKKOUNENGETSU`)
 ) ENGINE=InnoDB DEFAULT CHARSET=sjis;
@@ -37,10 +37,10 @@ DROP TABLE IF EXISTS `AT020`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AT020` (
-  `NRJYUGYOIN` char(5) NOT NULL,
-  `TXKANA` char(30) NOT NULL,
-  `TXKANJI` char(30) NOT NULL,
-  `KBKOYOU` char(5) NOT NULL,
+  `NRJYUGYOIN` varchar(5) NOT NULL,
+  `TXKANA` varchar(30) NOT NULL,
+  `TXKANJI` varchar(30) NOT NULL,
+  `KBKOYOU` varchar(5) NOT NULL,
   `DTNYUSYA` date NOT NULL,
   `DTTAISYA` date DEFAULT NULL,
   `UPDCOUNTER` int(11) DEFAULT '0',
@@ -51,11 +51,59 @@ DROP TABLE IF EXISTS `AT021`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AT021` (
-  `NRJYUGYOIN` char(5) NOT NULL,
-  `DTSYOZOKUNENGETSU` char(6) NOT NULL,
-  `CDBUMON` char(5) NOT NULL,
+  `NRJYUGYOIN` varchar(5) NOT NULL,
+  `DTSYOZOKUNENGETSU` varchar(6) NOT NULL,
+  `CDBUMON` varchar(5) NOT NULL,
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`NRJYUGYOIN`,`DTSYOZOKUNENGETSU`)
+) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `CUSTOMERS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `CUSTOMERS` (
+  `CODE` varchar(20) NOT NULL,
+  `NAME` varchar(30) NOT NULL,
+  `CREDIT` int(11) NOT NULL DEFAULT '0',
+  `UPDCOUNTER` int(11) DEFAULT '0',
+  PRIMARY KEY (`CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `ORDERS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ORDERS` (
+  `NO` varchar(20) NOT NULL,
+  `CODE` varchar(5) NOT NULL,
+  `DATE` date NOT NULL,
+  `UPDCOUNTER` int(11) DEFAULT '0',
+  PRIMARY KEY (`NO`)
+) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `ORDER_DETAILS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ORDER_DETAILS` (
+  `ORDERS_NO` varchar(20) NOT NULL,
+  `ROW_NO` varchar(20) NOT NULL,
+  `PRODUCTS_CODE` varchar(5) NOT NULL,
+  `QUANTITY` int(11) NOT NULL DEFAULT '0',
+  `SHIP_DATE` date NOT NULL,
+  `UPDCOUNTER` int(11) DEFAULT '0',
+  PRIMARY KEY (`ORDERS_NO`,`ROW_NO`)
+) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `PRODUCTS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `PRODUCTS` (
+  `CODE` varchar(5) NOT NULL,
+  `NAME` varchar(30) NOT NULL,
+  `PURCHASE_PRICE` int(11) NOT NULL DEFAULT '0',
+  `SALES_PRICE` int(11) NOT NULL DEFAULT '0',
+  `UNIT` varchar(4) NOT NULL,
+  `UPDCOUNTER` int(11) DEFAULT '0',
+  PRIMARY KEY (`CODE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=sjis;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ZT010`;
@@ -69,7 +117,7 @@ CREATE TABLE `ZT010` (
   `TXREMARKS` varchar(500) DEFAULT NULL,
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`IDVARIANT`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ZT020`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -85,7 +133,7 @@ CREATE TABLE `ZT020` (
   `NREMPLOYEE` char(5) DEFAULT NULL,
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`IDUSER`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ZT021`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -97,7 +145,7 @@ CREATE TABLE `ZT021` (
   `TXVALUE` char(50) DEFAULT NULL,
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`IDUSER`,`IDFUNCTION`,`IDFILTER`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ZT030`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -110,7 +158,7 @@ CREATE TABLE `ZT030` (
   `FGWITHCD` char(1) NOT NULL,
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`IDNUMBER`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ZT040`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -122,7 +170,7 @@ CREATE TABLE `ZT040` (
   `SQLIST` char(5) DEFAULT NULL,
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`IDUSERKUBUN`,`KBUSERKUBUN`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ZT050`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -137,7 +185,7 @@ CREATE TABLE `ZT050` (
   `KBSESSIONSTATUS` char(3) NOT NULL,
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`NRSESSION`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ZT051`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -154,7 +202,7 @@ CREATE TABLE `ZT051` (
   `TXERRORLOG` longtext,
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`NRSESSION`,`SQPROGRAM`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ZT060`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -165,7 +213,7 @@ CREATE TABLE `ZT060` (
   `VLTAXRATE` decimal(3,2) NOT NULL DEFAULT '0.00',
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`DTSTART`,`KBKAZEI`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ZT070`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -176,7 +224,7 @@ CREATE TABLE `ZT070` (
   `TXOFF` char(20) DEFAULT NULL,
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`KBCALENDAR`,`DTOFF`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ZT080`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -189,7 +237,7 @@ CREATE TABLE `ZT080` (
   `VLRATES` decimal(10,3) NOT NULL DEFAULT '0.000',
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`KBCURRENCY`,`DTNEND`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ZT081`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -203,7 +251,26 @@ CREATE TABLE `ZT081` (
   `VLRATES` decimal(10,3) NOT NULL DEFAULT '0.000',
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`KBCURRENCY`,`DTNEND`,`DTMSEQ`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `ar_internal_metadata`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ar_internal_metadata` (
+  `key` varchar(255) NOT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `schema_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `schema_migrations` (
+  `version` varchar(255) NOT NULL,
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -214,4 +281,9 @@ CREATE TABLE `ZT081` (
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+INSERT INTO `schema_migrations` (version) VALUES
+('20180328015548'),
+('20180328063150');
+
 

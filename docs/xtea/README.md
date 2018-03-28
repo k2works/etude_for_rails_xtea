@@ -43,6 +43,10 @@ rails g model department --migration false
 rails g model department_hierarchy --migration false
 rails g model employee --migration false
 rails g model employee_department --migration false
+rails g model customer --migration false
+rails g model product --migration false
+rails g model order --migration false
+rails g model order_detail --migration false
 ```
 
 ## 運用

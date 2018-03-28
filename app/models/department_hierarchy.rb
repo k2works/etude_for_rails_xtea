@@ -1,0 +1,2 @@
+class DepartmentHierarchy < ApplicationRecord
+end

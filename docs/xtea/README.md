@@ -12,7 +12,7 @@ password
 
 |IDUSER	| TXNAME         | TXPASSWORD                       | DTVALID    | DTEXPIRE   | TXEMAIL | TXMENUS | NREMPLOYEE | UPDCOUNTER |
 |:------|-------:        |:----------:                      |:-----------:|:---------:|:-------:|:-------:|:----------:|:----------:|
-| 00000	| システム管理者 | f1b708bba17f1ce948dc979f4d7092bc	| 2000/01/01 | 9999/12/31 |         | ALL     |            |            |
+| 00000	| admin | f1b708bba17f1ce948dc979f4d7092bc	| 2000/01/01 | 9999/12/31 |         | ALL     |            |            |
 
 `/etc/mysql/mysql.conf.d/mysqld.conf`に以下を追加してサービスを再起動する
 ```text

@@ -13,98 +13,98 @@ DROP TABLE IF EXISTS `AT010`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AT010` (
-  `CDBUMON` varchar(5) NOT NULL,
-  `TXBUMON` varchar(30) NOT NULL,
-  `NRKANRISYA` varchar(5) NOT NULL,
-  `TXTEKIYO` varchar(300) DEFAULT NULL,
+  `CDBUMON` char(5) NOT NULL COMMENT '部門Ｃ',
+  `TXBUMON` char(30) NOT NULL COMMENT '部門名',
+  `NRKANRISYA` char(5) NOT NULL COMMENT '管理者№',
+  `TXTEKIYO` varchar(300) DEFAULT NULL COMMENT '摘要',
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`CDBUMON`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `AT011`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AT011` (
-  `CDBUMON` varchar(5) NOT NULL,
-  `DTHAKKOUNENGETSU` varchar(6) NOT NULL,
-  `CDJYOUIBUMON` varchar(5) NOT NULL,
-  `DTSIKKOUNENGETSU` varchar(6) NOT NULL,
+  `CDBUMON` char(5) NOT NULL COMMENT '部門Ｃ',
+  `DTHAKKOUNENGETSU` char(6) NOT NULL COMMENT '発効年月',
+  `CDJYOUIBUMON` char(5) NOT NULL COMMENT '上位部門Ｃ',
+  `DTSIKKOUNENGETSU` char(6) NOT NULL COMMENT '失効年月',
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`CDBUMON`,`DTHAKKOUNENGETSU`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `AT020`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AT020` (
-  `NRJYUGYOIN` varchar(5) NOT NULL,
-  `TXKANA` varchar(30) NOT NULL,
-  `TXKANJI` varchar(30) NOT NULL,
-  `KBKOYOU` varchar(5) NOT NULL,
-  `DTNYUSYA` date NOT NULL,
-  `DTTAISYA` date DEFAULT NULL,
+  `NRJYUGYOIN` char(5) NOT NULL COMMENT '従業員№',
+  `TXKANA` char(30) NOT NULL COMMENT 'カナ名',
+  `TXKANJI` char(30) NOT NULL COMMENT '漢字名',
+  `KBKOYOU` char(5) NOT NULL COMMENT '雇用区分',
+  `DTNYUSYA` date NOT NULL COMMENT '入社日',
+  `DTTAISYA` date DEFAULT NULL COMMENT '退社日',
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`NRJYUGYOIN`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `AT021`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AT021` (
-  `NRJYUGYOIN` varchar(5) NOT NULL,
-  `DTSYOZOKUNENGETSU` varchar(6) NOT NULL,
-  `CDBUMON` varchar(5) NOT NULL,
+  `NRJYUGYOIN` char(5) NOT NULL COMMENT '従業員№',
+  `DTSYOZOKUNENGETSU` char(6) NOT NULL COMMENT '所属開始年月',
+  `CDBUMON` char(5) NOT NULL COMMENT '部門Ｃ',
   `UPDCOUNTER` int(11) DEFAULT '0',
   PRIMARY KEY (`NRJYUGYOIN`,`DTSYOZOKUNENGETSU`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-DROP TABLE IF EXISTS `CUSTOMERS`;
+DROP TABLE IF EXISTS `BT010`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `CUSTOMERS` (
-  `CODE` varchar(20) NOT NULL,
-  `NAME` varchar(30) NOT NULL,
-  `CREDIT` int(11) NOT NULL DEFAULT '0',
+CREATE TABLE `BT010` (
+  `CS_CODE` char(20) NOT NULL COMMENT '顧客コード',
+  `CS_NAME` char(30) NOT NULL COMMENT '顧客名',
+  `CS_CREDIT` int(11) NOT NULL DEFAULT '0' COMMENT '与信限度額',
   `UPDCOUNTER` int(11) DEFAULT '0',
-  PRIMARY KEY (`CODE`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+  PRIMARY KEY (`CS_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-DROP TABLE IF EXISTS `ORDERS`;
+DROP TABLE IF EXISTS `BT020`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `ORDERS` (
-  `NO` varchar(20) NOT NULL,
-  `CODE` varchar(5) NOT NULL,
-  `DATE` date NOT NULL,
+CREATE TABLE `BT020` (
+  `OD_NO` char(20) NOT NULL COMMENT '受注No',
+  `CS_CODE` char(5) NOT NULL COMMENT '顧客コード',
+  `OD_DATE` date NOT NULL COMMENT '受注日',
   `UPDCOUNTER` int(11) DEFAULT '0',
-  PRIMARY KEY (`NO`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+  PRIMARY KEY (`OD_NO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-DROP TABLE IF EXISTS `ORDER_DETAILS`;
+DROP TABLE IF EXISTS `BT021`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `ORDER_DETAILS` (
-  `ORDERS_NO` varchar(20) NOT NULL,
-  `ROW_NO` varchar(20) NOT NULL,
-  `PRODUCTS_CODE` varchar(5) NOT NULL,
-  `QUANTITY` int(11) NOT NULL DEFAULT '0',
-  `SHIP_DATE` date NOT NULL,
+CREATE TABLE `BT021` (
+  `OD_NO` char(20) NOT NULL COMMENT '受注No',
+  `OD_LINE_NO` char(20) NOT NULL COMMENT '行番号',
+  `PD_CODE` char(5) NOT NULL COMMENT '商品コード',
+  `OD_QUANTITY` int(11) NOT NULL DEFAULT '0' COMMENT '受注数',
+  `OD_SHIP_DATE` date NOT NULL COMMENT '出荷日',
   `UPDCOUNTER` int(11) DEFAULT '0',
-  PRIMARY KEY (`ORDERS_NO`,`ROW_NO`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+  PRIMARY KEY (`OD_NO`,`OD_LINE_NO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-DROP TABLE IF EXISTS `PRODUCTS`;
+DROP TABLE IF EXISTS `BT030`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `PRODUCTS` (
-  `CODE` varchar(5) NOT NULL,
-  `NAME` varchar(30) NOT NULL,
-  `PURCHASE_PRICE` int(11) NOT NULL DEFAULT '0',
-  `SALES_PRICE` int(11) NOT NULL DEFAULT '0',
-  `UNIT` varchar(4) NOT NULL,
+CREATE TABLE `BT030` (
+  `PD_CODE` char(5) NOT NULL COMMENT '商品コード',
+  `PD_NAME` char(30) NOT NULL COMMENT '商品名',
+  `PURCHASE_PRICE` int(11) NOT NULL DEFAULT '0' COMMENT '購入単価',
+  `SALES_PRICE` int(11) NOT NULL DEFAULT '0' COMMENT '販売単価',
+  `PD_UNIT` char(4) NOT NULL COMMENT '扱い単位',
   `UPDCOUNTER` int(11) DEFAULT '0',
-  PRIMARY KEY (`CODE`)
-) ENGINE=InnoDB DEFAULT CHARSET=sjis;
+  PRIMARY KEY (`PD_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ZT010`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

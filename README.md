@@ -8,3 +8,9 @@ bundle install
 bundle exec rake db:cresate
 bundle exec rake db:migrate
 ```
+
+```bash
+docker-compose up -d
+mysql -h127.0.0.1 -uroot -ppassword
+> exti
+```

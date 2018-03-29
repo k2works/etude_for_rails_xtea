@@ -1,4 +1,14 @@
 # frozen_string_literal: true
+# == Schema Information
+#
+# Table name: BT020 # 受注No
+#
+#  OD_NO      :string(20)       not null, primary key
+#  CS_CODE    :string(5)        not null              # 顧客コード
+#  OD_DATE    :date             not null              # 受注日
+#  UPDCOUNTER :integer          default(0)
+#
+
 
 require 'rails_helper'
 

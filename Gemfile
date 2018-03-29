@@ -51,3 +51,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'composite_primary_keys', '=10.0.3'
+
+gem 'migration_comments'
+gem 'annotate'

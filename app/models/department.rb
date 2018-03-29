@@ -9,6 +9,7 @@
 #  UPDCOUNTER :integer          default(0)
 #
 
+
 class Department < ApplicationRecord
   self.table_name='AT010'
   self.primary_key=:CDBUMON

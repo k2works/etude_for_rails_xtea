@@ -8,6 +8,7 @@
 #  UPDCOUNTER :integer          default(0)
 #
 
+
 class Customer < ApplicationRecord
   self.table_name='BT010'
   self.primary_key=:CS_CODE

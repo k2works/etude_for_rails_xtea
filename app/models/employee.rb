@@ -11,6 +11,7 @@
 #  UPDCOUNTER :integer          default(0)
 #
 
+
 class Employee < ApplicationRecord
   self.table_name='AT020'
   self.primary_key=:NRJYUGYOIN

@@ -8,6 +8,7 @@
 #  UPDCOUNTER        :integer          default(0)
 #
 
+
 class EmployeeDepartment < ApplicationRecord
   self.table_name='AT021'
   self.primary_keys=:NRJYUGYOIN, :DTSYOZOKUNENGETSU

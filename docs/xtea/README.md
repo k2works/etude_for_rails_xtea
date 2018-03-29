@@ -20,6 +20,22 @@ character-set-server=utf8
 [client]
 default-character-set=sjis
 ```
+```sql
+mysql> show variables like "chara%";
++--------------------------+----------------------------+
+| Variable_name            | Value                      |
++--------------------------+----------------------------+
+| character_set_client     | sjis                       |
+| character_set_connection | sjis                       |
+| character_set_database   | utf8                       |
+| character_set_filesystem | binary                     |
+| character_set_results    | sjis                       |
+| character_set_server     | utf8                       |
+| character_set_system     | utf8                       |
+| character_sets_dir       | /usr/share/mysql/charsets/ |
++--------------------------+----------------------------+
+8 rows in set (0.00 sec)
+```
 
 ## 配置
 schema.rbの作成

@@ -10,6 +10,7 @@
 #  UPDCOUNTER   :integer          default(0)
 #
 
+
 class OrderDetail < ApplicationRecord
   self.table_name='BT021'
   self.primary_keys=:OD_NO,:OD_LINE_NO

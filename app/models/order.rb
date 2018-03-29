@@ -8,6 +8,7 @@
 #  UPDCOUNTER :integer          default(0)
 #
 
+
 class Order < ApplicationRecord
   self.table_name='BT020'
   self.primary_key=:OD_NO

@@ -10,6 +10,7 @@
 #  UPDCOUNTER     :integer          default(0)
 #
 
+
 class Product < ApplicationRecord
   self.table_name='BT030'
   self.primary_key=:PD_CODE

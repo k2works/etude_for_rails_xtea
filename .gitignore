@@ -20,3 +20,4 @@
 .idea
 docs/xtea/db
 docs/xtea/backup
+.vagrant

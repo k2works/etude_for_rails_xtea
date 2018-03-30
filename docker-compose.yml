@@ -1,9 +1,13 @@
 version: '2'
 services:
   mysql:
-    image: mysql:5.7.10
+    build: .
     environment:
       MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_USER: app
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: etude_for_rails_xtea_development
+      TZ: "Asia/Tokyo"
     ports:
       - 3306:3306
     volumes:

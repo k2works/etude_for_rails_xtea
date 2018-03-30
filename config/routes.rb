@@ -12,6 +12,7 @@
 # 
 
 Rails.application.routes.draw do
+  resources :employees
   resources :products
   resources :customers
   resources :orders

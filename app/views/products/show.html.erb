@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pd code:</strong>
+  <%= @product.PD_CODE %>
+</p>
+
+<p>
+  <strong>Pd name:</strong>
+  <%= @product.PD_NAME %>
+</p>
+
+<p>
+  <strong>Purchase price:</strong>
+  <%= @product.PURCHASE_PRICE %>
+</p>
+
+<p>
+  <strong>Sales price:</strong>
+  <%= @product.SALES_PRICE %>
+</p>
+
+<p>
+  <strong>Pd unit:</strong>
+  <%= @product.PD_UNIT %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

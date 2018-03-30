@@ -27,5 +27,18 @@ module EtudeForRailsXtea
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.generators do |g|
+      g.orm :active_record
+      g.assets false
+      g.helper false
+      g.test_framework :rspec,
+                       fixture: true,
+                       fixture_replacement: :factory_bot,
+                       view_specs: false,
+                       routing_specs: false,
+                       helper_specs: false,
+                       integration_tool: false
+    end
   end
 end

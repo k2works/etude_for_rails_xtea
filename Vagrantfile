@@ -69,8 +69,8 @@ Vagrant.configure("2") do |config|
      debconf-set-selections <<< 'mysql-server-5.7 mysql-server/root_password password password'
      debconf-set-selections <<< 'mysql-server-5.7 mysql-server/root_password_again password password'
      apt-get -y install mysql-server-5.7
-     mysql -u root -ppassword --connect-expired-password < /vagrant/provisioner.sql
-     cp /vagrant/charset.cnf /etc/mysql/mysql.conf.d/charset.cnf
+     mysql -u root -ppassword --connect-expired-password < /vagrant/provision/provisioner.sql
+     cp /vagrant/provision/charset.cnf /etc/mysql/mysql.conf.d/charset.cnf
      sed -i -e "s|127.0.0.1|0.0.0.0|" /etc/mysql/mysql.conf.d/mysqld.cnf
   SHELL
 end

@@ -17,5 +17,5 @@ RUN { \
     echo 'default-character-set=sjis'; \
 } > /etc/mysql/mysql.conf.d/charset.cnf
 
-COPY init.sh /docker-entrypoint-initdb.d/1_init.sh
+COPY provision/init.sh /docker-entrypoint-initdb.d/1_init.sh
 
